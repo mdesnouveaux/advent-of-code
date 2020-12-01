@@ -33,4 +33,38 @@ class expenseReportTest extends \PHPUnit\Framework\TestCase
         ];
         $expenseReport->checkDoubleExpense($input);
     }
+
+    public function testThatExpenseTripleCheckerReturnTheRightValueIfExist(): void
+    {
+        $expenseReport = new ExpenseReport();
+
+        $input = [
+            1721,
+            979,
+            366,
+            299,
+            675,
+            1456,
+        ];
+
+        $multiplier = 3;
+
+        $this->assertEquals(
+            241861950,
+            $expenseReport->checkTripleExpense($input)
+        );
+    }
+
+    public function testThatExpenseTripleCheckerThrowExceptionIfNoSolution(): void
+    {
+        $this->expectException("LogicException");
+        $expenseReport = new ExpenseReport();
+
+        $input = [
+            1721,
+            979,
+            366,
+        ];
+        $expenseReport->checkTripleExpense($input);
+    }
 }
