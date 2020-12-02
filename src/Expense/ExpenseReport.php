@@ -1,5 +1,9 @@
 <?php
 
+namespace Aoc\Expense;
+
+use LogicException;
+
 class ExpenseReport
 {
     public function checkDoubleExpense(array $input): int

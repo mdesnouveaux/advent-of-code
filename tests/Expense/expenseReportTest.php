@@ -1,7 +1,11 @@
 <?php
 
+namespace  Tests\Expense;
 
-class expenseReportTest extends \PHPUnit\Framework\TestCase
+use Aoc\Expense\ExpenseReport;
+use PHPUnit\Framework\TestCase;
+
+class expenseReportTest extends TestCase
 {
     public function testThatExpenseDoubleCheckerReturnTheRightValueIfExist(): void
     {
@@ -46,8 +50,6 @@ class expenseReportTest extends \PHPUnit\Framework\TestCase
             675,
             1456,
         ];
-
-        $multiplier = 3;
 
         $this->assertEquals(
             241861950,

@@ -1,8 +1,9 @@
 {
-    "autoload": {
-        "classmap": [
-            "src/"
-        ]
+    "autoload-dev": {
+        "psr-4": {
+            "Aoc\\": "src/",
+            "Tests\\": "tests/"
+        }
     },
     "require-dev": {
         "phpunit/phpunit": "^9"

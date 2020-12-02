@@ -1,5 +1,7 @@
 <?php
 
+use Aoc\Expense\ExpenseReport;
+
 require('vendor/autoload.php');
 
 $expenseReport = new ExpenseReport();
