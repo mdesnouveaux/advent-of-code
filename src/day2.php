@@ -13,4 +13,4 @@ $passwordList = $passwordFactory->parseInput($input);
 
 $checker = new PasswordPolicyChecker();
 
-echo "part 1: ".$checker->getValidPasswordCount($passwordList)."\n";
+echo "part 1: ".$checker->getSledRentalValidPasswordCount($passwordList)."\n";

@@ -25,7 +25,7 @@ class PasswordPolicy
     }
 
 
-    public function isValid(): bool
+    public function isSledRentalValid(): bool
     {
         $count = substr_count($this->password, $this->policyLetter);
 

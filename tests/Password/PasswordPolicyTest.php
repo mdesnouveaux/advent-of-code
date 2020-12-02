@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class PasswordPolicyTest extends TestCase
 {
-    public function testThatValidPasswordReturnTrue(): void
+    public function testThatSledRentalValidPasswordReturnTrue(): void
     {
         $password = new PasswordPolicy(
             'abcde',
@@ -17,11 +17,11 @@ class PasswordPolicyTest extends TestCase
         );
 
         $this->assertTrue(
-            $password->isValid()
+            $password->isSledRentalValid()
         );
     }
 
-    public function testThatValidPasswordWithFollowedPolicyLetterReturnTrue(): void
+    public function testThatSledRentalValidPasswordWithFollowedPolicyLetterReturnTrue(): void
     {
         $password = new PasswordPolicy(
             'ccccccccc',
@@ -31,11 +31,11 @@ class PasswordPolicyTest extends TestCase
         );
 
         $this->assertTrue(
-            $password->isValid()
+            $password->isSledRentalValid()
         );
     }
 
-    public function testThatInvalidPasswordReturnFalse(): void
+    public function testThatSledRentalInvalidPasswordReturnFalse(): void
     {
         $password = new PasswordPolicy(
             'cdefg',
@@ -45,7 +45,7 @@ class PasswordPolicyTest extends TestCase
         );
 
         $this->assertFalse(
-            $password->isValid()
+            $password->isSledRentalValid()
         );
     }
 }

@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class PasswordPolicyCheckerTest extends TestCase
 {
-    public function testThatPasswordPolicyCheckerReturnTheRightNumberOfValidPassword(): void
+    public function testThatPasswordPolicyCheckerReturnTheRightNumberOfSledRentalValidPassword(): void
     {
         $passwords[] = new PasswordPolicy(
             'abcde',
@@ -34,6 +34,6 @@ class PasswordPolicyCheckerTest extends TestCase
 
         $checker = new PasswordPolicyChecker();
 
-        $this->assertEquals(2, $checker->getValidPasswordCount($passwords));
+        $this->assertEquals(2, $checker->getSledRentalValidPasswordCount($passwords));
     }
 }
