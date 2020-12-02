@@ -36,4 +36,33 @@ class PasswordPolicyCheckerTest extends TestCase
 
         $this->assertEquals(2, $checker->getSledRentalValidPasswordCount($passwords));
     }
+
+    public function testThatPasswordPolicyCheckerReturnTheRightNumberOfTobogganCorporationValidPassword(): void
+    {
+        $passwords[] = new PasswordPolicy(
+            'abcde',
+            'a',
+            '1',
+            '3'
+        );
+
+        $passwords[] = new PasswordPolicy(
+            'cdefg',
+            'b',
+            '1',
+            '3'
+        );
+
+        $passwords[] = new PasswordPolicy(
+            'ccccccccc',
+            'c',
+            '2',
+            '9'
+        );
+
+
+        $checker = new PasswordPolicyChecker();
+
+        $this->assertEquals(1, $checker->getTobogganCorporationValidPasswordCount($passwords));
+    }
 }

@@ -17,4 +17,16 @@ class PasswordPolicyChecker
         }
         return $numberOfValidPassword;
     }
+
+    public function getTobogganCorporationValidPasswordCount(array $passwords): int
+    {
+        $numberOfValidPassword = 0;
+        /** @var PasswordPolicy $password */
+        foreach ($passwords as $password) {
+            if ($password->isTobogganCorporationValid()) {
+                $numberOfValidPassword++;
+            }
+        }
+        return $numberOfValidPassword;
+    }
 }

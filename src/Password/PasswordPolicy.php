@@ -32,4 +32,11 @@ class PasswordPolicy
         return $count >= $this->policyMin && $count <= $this->policyMax;
     }
 
+
+    public function isTobogganCorporationValid(): bool
+    {
+        return $this->password[$this->policyMin-1] === $this->policyLetter xor
+            $this->password[$this->policyMax-1] === $this->policyLetter;
+    }
+
 }
