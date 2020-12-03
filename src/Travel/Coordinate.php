@@ -34,12 +34,14 @@ class Coordinate
         return $this->column;
     }
 
-    public function move(): Coordinate
+    public function moveDown(int $down): void
     {
-        $this->line += 1;
-        $this->column += 3;
+        $this->line += $down;
+    }
 
-        return $this;
+    public function moveRight(int $right): void
+    {
+        $this->column += $right;
     }
 
 }

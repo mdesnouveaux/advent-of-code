@@ -4,13 +4,13 @@ namespace Aoc\Travel;
 
 class Travel
 {
-    public function numberOfEncounteredTrees(Coordinate $coordinate, Map $map): int
+    public function numberOfEncounteredTrees(Map $map, Slope $slope): int
     {
         $numberOfEncounteredTrees = 0;
 
-        while (!$map->isFinished($coordinate)) {
-            $coordinate->move();
-            if ($map->isTree($coordinate)) {
+        while (!$map->isFinished($slope->getCoordinate())) {
+            $slope->slide();
+            if ($map->isTree($slope->getCoordinate())) {
                 $numberOfEncounteredTrees++;
             }
         }
