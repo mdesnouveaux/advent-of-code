@@ -36,4 +36,35 @@ class TravelTest extends TestCase
             $travel->numberOfEncounteredTrees($map, $slope)
         );
     }
+
+    public function testThatTheProductTreeEncounterTravelDuringMultipleTravelReturnTheRightProduct(): void
+    {
+        $input = [
+            '..##.......',
+            '#...#...#..',
+            '.#....#..#.',
+            '..#.#...#.#',
+            '.#...##..#.',
+            '..#.##.....',
+            '.#.#.#....#',
+            '.#........#',
+            '#.##...#...',
+            '#...##....#',
+            '.#..#...#.#',
+        ];
+
+        $map = new Map($input);
+        $travel = new Travel();
+
+        $slopes[] = new Slope(new Coordinate(0, 0), 1, 1);
+        $slopes[] = new Slope(new Coordinate(0, 0), 1, 3);
+        $slopes[] = new Slope(new Coordinate(0, 0), 1, 5);
+        $slopes[] = new Slope(new Coordinate(0, 0), 1, 7);
+        $slopes[] = new Slope(new Coordinate(0, 0), 2, 1);
+
+        $this->assertEquals(
+            336,
+            $travel->productOfEncounteredTreesWithMultipleSlopeTravel($map, $slopes)
+        );
+    }
 }

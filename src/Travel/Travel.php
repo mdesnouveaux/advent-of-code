@@ -17,4 +17,15 @@ class Travel
 
         return $numberOfEncounteredTrees;
     }
+
+    public function productOfEncounteredTreesWithMultipleSlopeTravel(Map $map, array $slopes): int
+    {
+        $productOfEncounterTrees = 1;
+
+        foreach ($slopes as $slope) {
+            $productOfEncounterTrees *= $this->numberOfEncounteredTrees($map, $slope);
+        }
+
+        return $productOfEncounterTrees;
+    }
 }
