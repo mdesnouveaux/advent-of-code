@@ -5,10 +5,10 @@ namespace Tests\Credentials;
 
 
 use Aoc\Credentials\Passport;
-use Aoc\Credentials\PassportChecker;
+use Aoc\Credentials\PassportLightPolicy;
 use PHPUnit\Framework\TestCase;
 
-class PassportCheckerTest extends TestCase
+class PassportLightPolicyTest extends TestCase
 {
     public function testTheACompletePassportIsValid()
     {
@@ -23,7 +23,7 @@ class PassportCheckerTest extends TestCase
             '147',
         );
 
-        $passportChecker = new PassportChecker();
+        $passportChecker = new PassportLightPolicy();
 
         $this->assertTrue($passportChecker->isValid($passport));
     }
@@ -41,7 +41,7 @@ class PassportCheckerTest extends TestCase
             '350',
         );
 
-        $passportChecker = new PassportChecker();
+        $passportChecker = new PassportLightPolicy();
 
         $this->assertFalse($passportChecker->isValid($passport));
     }
@@ -59,7 +59,7 @@ class PassportCheckerTest extends TestCase
             null,
         );
 
-        $passportChecker = new PassportChecker();
+        $passportChecker = new PassportLightPolicy();
 
         $this->assertTrue($passportChecker->isValid($passport));
     }
@@ -109,11 +109,12 @@ class PassportCheckerTest extends TestCase
             null,
         );
 
-        $passportChecker = new PassportChecker();
+        $passportChecker = new PassportLightPolicy();
 
         $this->assertEquals(
             2,
             $passportChecker->countValidPassports($passports)
         );
     }
+
 }

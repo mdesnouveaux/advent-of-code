@@ -4,7 +4,7 @@
 namespace Aoc\Credentials;
 
 
-class PassportChecker
+class PassportLightPolicy implements PassportPolicyInterface
 {
     public function isValid(Passport $passport): bool
     {
