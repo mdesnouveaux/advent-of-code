@@ -3,6 +3,8 @@
 namespace Aoc\Boarding;
 
 
+use LogicException;
+
 class Boarding
 {
     public function convertBoardingPass(string $boardingPass): string
@@ -39,5 +41,16 @@ class Boarding
             $seatIds[] = $this->findSeatId($boardingPass);
         }
         return $seatIds;
+    }
+
+    public function findMissingSeatId(array $seatIds): int
+    {
+        sort($seatIds);
+        foreach ($seatIds as $key => $seatId) {
+            if ($seatIds[$key+1] === $seatId+2) {
+                return $seatId+1;
+            }
+        }
+        throw new LogicException('OverBooking Error : No Seat Available');
     }
 }

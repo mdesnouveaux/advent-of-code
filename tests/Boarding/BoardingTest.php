@@ -81,4 +81,21 @@ class BoardingTest extends TestCase
             $boarding->findSeatIds($boardingPasses)
         );
     }
+
+    public function testBoardingCanFindMissingSeatId()
+    {
+        $seatIds[] = 356;
+        $seatIds[] = 357;
+        $seatIds[] = 359;
+        $seatIds[] = 360;
+
+        $expectedSeatId = 358;
+
+        $boarding = new Boarding();
+
+        $this->assertEquals(
+            $expectedSeatId,
+            $boarding->findMissingSeatId($seatIds)
+        );
+    }
 }
