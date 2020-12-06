@@ -9,3 +9,4 @@ $input = file_get_contents( 'input/Day6/input');
 $survey = new Survey();
 
 echo "part 1: ".$survey->countCommonAnswerInMultipleGroup($input)."\n";
+echo "part 2: ".$survey->countIntersectAnswerInMultipleGroup($input)."\n";
